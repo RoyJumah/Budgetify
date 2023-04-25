@@ -1,8 +1,6 @@
- 
- require 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe Entity, type: :model do
-  
   describe 'associations' do
     it 'belongs_to user' do
       entity = Entity.reflect_on_association(:user)
@@ -16,7 +14,7 @@ RSpec.describe Entity, type: :model do
   end
 
   describe 'validations' do
-    before (:each) do
+    before(:each) do
       @user = User.create(name: 'John')
     end
 
@@ -39,6 +37,5 @@ RSpec.describe Entity, type: :model do
       entity = Entity.new(name: 'Entity', amount: 100, authorid: nil)
       expect(entity).to_not be_valid
     end
-  
   end
 end

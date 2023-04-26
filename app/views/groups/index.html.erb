@@ -1,0 +1,34 @@
+<div>
+
+  <h1>CATEGORIES</h1>
+</div>
+<ul>
+  <li><%= link_to_unless_current("Most recent", root_path ) %><li>
+  <li><%= link_to_unless_current("Most ancient",  older_groups_path ) %><li>
+</ul>
+
+<% if !@groups.empty? %>
+  <div>
+  <% @groups.each do |group| %>
+    <div>
+      <div style="background-image: url(<%= group.icon %>)"></div>
+      <div>
+        <%= link_to group_path(group) do %>
+          <%= group.name %>
+        <% end %>
+        <p><%= group.created_at.strftime("%d %h %Y")  %></p>
+      </div>
+      <p></p>
+      <% @total = 0 %>
+      <% group.groups_assets.each { |e| @total += e.asset.amount }%>
+      <p>Total: $<%= @total %></p>
+    </div>
+  <% end %>
+  </div>
+<% else %>
+  <p>No category added yet</p>
+<% end %>
+
+<div>
+  <%= link_to "Add new category", new_group_path %>
+</div>

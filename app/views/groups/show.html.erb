@@ -1,0 +1,32 @@
+<div>
+    <%= link_to root_path do %>
+    
+    <% end %>
+    <h2>DETAILS</h2>
+</div>
+
+<% if @groups_assets.size > 0%>
+<div>
+  <p>
+    <span>Total payment:</span><span>$<%= @total %></span>
+  </p>
+  <% @groups_assets.each do |group| %>
+    <div>
+      <div>
+        <p>  
+         <%= group.asset.name %>
+        </p>
+        <small>
+          <%= group.created_at.strftime("%d %h %Y")%> at <%=group.created_at.strftime("%l.%M%P")%>
+        </small>
+      </div>
+      <p>$<%= group.asset.amount %></p>
+    </div>
+  <% end %>
+ <% else %>
+    <p class="p-2">No asset added yet for this category</p>
+ <% end %>
+  <div>
+    <%= link_to "Add new asset", new_groups_asset_path %>
+  </div>
+</div>

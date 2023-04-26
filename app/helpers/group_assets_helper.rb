@@ -1,0 +1,2 @@
+module GroupAssetsHelper
+end

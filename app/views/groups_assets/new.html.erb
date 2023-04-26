@@ -1,0 +1,20 @@
+<%= form_with(model: @asset, url: groups_assets_url, method: :post) do |form| %>
+  <div>
+    <%= link_to root_path do %>
+       
+    <% end %>
+    <h2>NEW asset</h2>
+    <%= form.submit 'Save'%>
+  </div>
+   <div>
+    <%= form.text_field :name, placeholder: 'Name', required: true %>
+   </div>
+   <div>
+    <%= form.number_field :amount, placeholder: 'Amount', required: true %>
+   </div>
+   <div>
+      <%= select_tag "group", options_for_select(@groups.map { |group| [group.name, group.id] }), 
+      {prompt: 'Select Category', required: true, 
+       class: "col-12 p-2 border rounded dropdown-toggle"} %>
+   </div>
+<% end %>

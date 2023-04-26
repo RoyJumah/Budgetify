@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'group/expenses'
+  devise_for :users, sign_out_via: [:get, :post]
+  resources :groups
+  resources :groups_assets, only: [:new, :create]
+  resources :assets
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  root to: 'users#index'
-  resources :users, only: %i[index show] do
-    resources :entities, only: %i[index show]
-    resources :groups, only: %i[index show]
+
+  devise_scope :user do
+    root to: 'welcome#index'
   end
+
+  # Defines the root path route ("/")
+
+  get '/older_groups' => "groups#older_index"
 end

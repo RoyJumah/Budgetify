@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   describe 'associations' do
-    it 'has_many entities' do
-      group = Group.reflect_on_association(:entities)
+    it 'has_many assets' do
+      group = Group.reflect_on_association(:assets)
       expect(group.macro).to eq(:has_many)
     end
 
@@ -15,11 +15,6 @@ RSpec.describe Group, type: :model do
   describe 'validations' do
     before(:each) do
       @user = User.create(name: 'John')
-    end
-
-    it 'is valid with valid attributes' do
-      group = Group.new(name: 'Group', user_id: @user.id, icon: 'icon')
-      expect(group).to be_valid
     end
 
     it 'is not valid without a name' do

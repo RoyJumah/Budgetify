@@ -1,20 +1,19 @@
-<div class="d-flex justify-content-between top text-light p-2">
-  <a href="#" class="text-light"><i class="bi bi-list h1"></i></a>
+<div>
+
   <h1>CATEGORIES</h1>
-  <a href="#" class="text-light"><i class="bi bi-search h1"></i></a>
 </div>
-<ul class="top d-flex justify-content-center gap-2 pb-2 list-unstyled">
+<ul>
   <li><%= link_to_unless_current("Most recent", root_path ) %><li>
   <li><%= link_to_unless_current("Most ancient",  older_groups_path ) %><li>
 </ul>
 
 <% if !@groups.empty? %>
-  <div id="groups" class="p-2">
+  <div>
   <% @groups.each do |group| %>
-    <div class="category d-flex border mb-1 p-1">
-      <div class="logo me-2 col-3" style="background-image: url(<%= group.icon %>)"></div>
-      <div class="col-5">
-        <%= link_to group_path(group), class: 'text-decoration-none' do %>
+    <div>
+      <div style="background-image: url(<%= group.icon %>)"></div>
+      <div>
+        <%= link_to group_path(group) do %>
           <%= group.name %>
         <% end %>
         <p><%= group.created_at.strftime("%d %h %Y")  %></p>
@@ -22,14 +21,14 @@
       <p></p>
       <% @total = 0 %>
       <% group.groups_assets.each { |e| @total += e.asset.amount }%>
-      <p class="text-end col-3">Total: $<%= @total %></p>
+      <p>Total: $<%= @total %></p>
     </div>
   <% end %>
   </div>
 <% else %>
-  <p class="p-2">No category added yet</p>
+  <p>No category added yet</p>
 <% end %>
 
-<div class="text-light footer d-flex justify-content-center p-3">
-  <%= link_to "Add new category", new_group_path, class: 'btn border border-light p-2' %>
+<div>
+  <%= link_to "Add new category", new_group_path %>
 </div>

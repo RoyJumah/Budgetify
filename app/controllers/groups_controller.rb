@@ -3,7 +3,6 @@ class GroupsController < ApplicationController
     @groups = Group.where(user: current_user).includes(:groups_assets).order(created_at: :desc).limit(4)
     @name = current_user.name
   end
-  
 
   def older_index
     @groups = Group.where(user: current_user).includes(:groups_assets).order(created_at: :asc)

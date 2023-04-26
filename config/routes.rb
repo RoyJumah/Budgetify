@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'group/expenses'
-  devise_for :users, sign_out_via: [:get, :post]
+  devise_for :users
   resources :groups
   resources :groups_assets, only: [:new, :create]
   resources :assets

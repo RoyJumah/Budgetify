@@ -1,0 +1,36 @@
+<%= form_with(model: @asset, url: groups_assets_url, method: :post) do |form| %>
+  <header class="bg-primary text-white">
+    <nav class="d-flex justify-content-between p-2 align-items-center text-reset">
+      <%= link_to groups_path do %>
+        <i class="fas fa-arrow-left fs-1 text-white"></i>
+      <% end %>
+      <h2 class="m-0 p-0">New asset</h2>
+      <%= form.submit 'Save', class: 'nav-link fs-2' %>
+    </nav>
+  </header>
+  <% if @asset.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@asset.errors.count, 'error') %> prohibited this asset from being saved:</h2>
+
+      <ul>
+        <% @asset.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mt-3">
+    <%= form.text_field :name, placeholder: 'Name', required: true, class: 'form-control rounded-0' %>
+  </div>
+
+  <div>
+    <%= form.number_field :amount, placeholder: 'Amount', required: true, class: 'form-control rounded-0' %>
+  </div>
+
+  <div>
+    <%= select_tag 'group', options_for_select(@groups.map { |group| [group.name, group.id] }),
+      { prompt: 'Select Category', required: true,
+        class: 'form-control rounded-0' } %>
+  </div>
+<% end %>

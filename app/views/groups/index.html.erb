@@ -1,0 +1,29 @@
+<%= render "shared/categoriesnav" %>
+<p style="color: green"><%= notice %></p>
+
+<% if !@groups.empty? %>
+  <div>
+  <% @groups.each do |group| %>
+    <div class="shadow p-3 mb-3 d-flex justify-space-between">
+    <div class="bg-image img-thumbnail" style="background-image: url('<%= group.icon %>');"></div>
+
+      <div class="d-flex flex-column justify-content-between flex-fill px-3 py-2">
+        <%= link_to group_path(group), class: "fs-5 fw-bold text-secondary text-decoration-none mb-2" do %>
+          <%= group.name %>
+        <% end %>
+        <p class="opacity-25 m-0"><%= group.created_at.strftime("%d %h %Y")  %></p>
+      </div>
+      <% @total = 0 %>
+      <% group.groups_assets.each { |e| @total += e.asset.amount }%>
+      <p class="mt-2 fw-bold">Total: $<%= @total %></p>
+    </div>
+  <% end %>
+  
+  </div>
+<% else %>
+  <p class="text-muted">No category added yet</p>
+<% end %>
+
+<div class="d-flex flex-column fixed-bottom align-items-center justify-content-center text-center bg-success w-100 p-3">
+  <%= link_to "Add a new category", new_group_path, class: "text-white w-100  nav-link border border-white  p-2" %>
+</div>

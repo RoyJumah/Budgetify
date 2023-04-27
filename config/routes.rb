@@ -8,8 +8,15 @@ Rails.application.routes.draw do
 
 
   devise_scope :user do
-    root to: 'welcome#index'
+    authenticated :user do
+      root 'groups#index', as: :authenticated_root
+    end
+  
+    unauthenticated do
+      root 'welcome#index', as: :unauthenticated_root
+    end
   end
+  
 
   # Defines the root path route ("/")
 

@@ -23,10 +23,16 @@ class GroupsController < ApplicationController
     group = Group.new(group_params)
     group.user = current_user
     if group.save
-      redirect_to root_path
+      redirect_to authenticated_root_path
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    group = Group.find(params[:id])
+    group.destroy
+    redirect_to authenticated_root_path
   end
 
   private

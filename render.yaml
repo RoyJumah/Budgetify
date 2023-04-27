@@ -1,24 +1,18 @@
 databases:
-  - name: postgres
-    ipAllowList: []
+  - name: budgetify
+    databaseName: budgetify_app
+    user: budgetify_app_user
 
 services:
   - type: web
-    name: rails
+    name: budgetify
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: bundle exec rails s
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
-      - key: RAILS_MASTER_KEY
-        sync: false
-
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: budgetify
           property: connectionString
-
-  - type: redis
-    name: redis
-    ipAllowList: []
-    plan: free
-    maxmemoryPolicy: noeviction
+      - key: RAILS_MASTER_KEY
+        sync: false

@@ -1,9 +1,9 @@
-<header class="bg-primary text-white sticky-top">
+<header class="bg-color text-white sticky-top">
   <nav class="d-flex justify-content-between p-3 align-items-center text-center">   
   <%= link_to authenticated_root_path do %>
       <i class="fa-solid fa-arrow-left fs-1 text-white"></i>
     <% end %>
-    <h2 class="m-0 p-0">DETAILS</h2>
+    <h2 class="m-0 p-0">TRANSACTIONS</h2>
     <i class="fa-solid fa-magnifying-glass text-white fs-1"></i>
   </nav> 
 </header>
@@ -33,9 +33,9 @@
     <% end %>
   </div>
 <% else %>
-  <p class="p-2">No asset added yet for this category</p>
+  <p class="p-2">No transaction added yet for this category</p>
 <% end %>
 
 <div class="d-flex flex-column fixed-bottom align-items-center justify-content-center text-center bg-success w-100 p-3">
-  <%= link_to "Add new asset", new_groups_asset_path, class: "text-white w-100  nav-link border border-white  p-2" %>
+  <%= link_to "Add new transaction", new_groups_asset_path, class: "text-white w-100  nav-link border border-white  p-2" %>
 </div>

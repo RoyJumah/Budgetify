@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'group/expenses'
-  devise_for :users, sign_out_via: [:get, :post]
+  devise_for :users
   resources :groups
   resources :groups_assets, only: [:new, :create]
   resources :assets
@@ -8,8 +8,15 @@ Rails.application.routes.draw do
 
 
   devise_scope :user do
-    root to: 'welcome#index'
+    authenticated :user do
+      root 'groups#index', as: :authenticated_root
+    end
+  
+    unauthenticated do
+      root 'welcome#index', as: :unauthenticated_root
+    end
   end
+  
 
   # Defines the root path route ("/")
 

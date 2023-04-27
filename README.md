@@ -162,7 +162,7 @@ If you like this project you can give it a star
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank `Microverse` for providing us the resources that enabled us to finish this challenge!
+I would like to thank [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) who is the original author for this [design](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

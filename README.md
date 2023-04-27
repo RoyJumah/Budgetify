@@ -10,6 +10,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
      - [🚀 Live Demo](#live-demo)
+     - [Walkthrough Video ](#walkthrough-video-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prequisites](#prequisites)
     - [Setup](#setup)
@@ -58,6 +59,13 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- WALKTHROUGH VIDEO -->
+
+## Walkthrough video <a name ="walkthrough-video"></a>
+
+[Walkthrough video](https://www.loom.com/share/e29e20ee84774078b6791d108c7d9630)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 

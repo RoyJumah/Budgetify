@@ -9,7 +9,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   
     <div class="field mt-3">
-      <%= f.text_field :name, autofocus: true, autocomplete: "email", placeholder: "Full name", class: "form-control rounded-0" %>
+      <%= f.text_field :name, id: "user_name", autofocus: true, autocomplete: "email", placeholder: "Name", class: "form-control rounded-0" %>
     </div>
   
     <div class="field">
